@@ -153,6 +153,17 @@ public class BusinessLogic : IBusinessLogic
         return db.SelectAllAirports();
     }
 
+    /// Provides a list of all resources from the database.
+    private List<ResourceItem> GetAllResources()
+    {
+        return new List<ResourceItem>();
+    }
+
+    /// Retrieves a resource from the database by its respective URL.
+    private ResourceItem GetResourceByURL(string url)
+    {
+        return new ResourceItem();
+    }
 
 }
 

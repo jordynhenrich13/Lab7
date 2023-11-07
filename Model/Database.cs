@@ -174,6 +174,18 @@ public class Database : IDatabase
         return config["CockroachDBPassword"] ?? ""; // if it can't find the password, returns ... the password (this works in VS, not VSC) 
     }
 
+    /// Retrieves a list of all resources from the database.
+    private List<ResourceItem> GetAllResources()
+    {
+        return new List<ResourceItem>();
+    }
+
+    /// Provides a resource from the database from its respective URL.
+    private ResourceItem GetResourceByURL(string url)
+    {
+        return new ResourceItem();
+    }
+
 
 }
 
