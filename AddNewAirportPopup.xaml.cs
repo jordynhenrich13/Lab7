@@ -32,6 +32,8 @@ public partial class AddNewAirportPopup : Popup
             // Both parsing operations were successful.
             businesslogic.AddAirport(IdENT.Text, CityENT.Text, dateVisited, rating);
         }
+
+		Close();
     }
 
     /// <summary>
