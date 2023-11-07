@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Views;
+using Lab6_Starter.Model;
 
 namespace Lab6_Solution;
 
@@ -7,6 +8,7 @@ namespace Lab6_Solution;
 /// </summary>
 public partial class AddNewAirportPopup : Popup
 {
+	BusinessLogic businesslogic = new BusinessLogic(new Database());
 	/// <summary>
 	/// Initializes the popup component.
 	/// </summary>
@@ -22,15 +24,22 @@ public partial class AddNewAirportPopup : Popup
 	/// <param name="args">Arguments</param>
 	public void AddAirportButtonClicked(System.Object sender, System.EventArgs args)
 	{
-		/* Code here TO BE IMPLEMENTED */
-	}
+        DateTime dateVisited;
+        int rating;
 
-	/// <summary>
-	/// Closes the "Add New Airport" popup.
-	/// </summary>
-	/// <param name="sender">Sender</param>
-	/// <param name="args">Arguments</param>
-	public void ClosePopupButtonClicked(System.Object sender, System.EventArgs args)
+        if (DateTime.TryParse(DateVisitedENT.Text, out dateVisited) && int.TryParse(RatingENT.Text, out rating))
+        {
+            // Both parsing operations were successful.
+            businesslogic.AddAirport(IdENT.Text, CityENT.Text, dateVisited, rating);
+        }
+    }
+
+    /// <summary>
+    /// Closes the "Add New Airport" popup.
+    /// </summary>
+    /// <param name="sender">Sender</param>
+    /// <param name="args">Arguments</param>
+    public void ClosePopupButtonClicked(System.Object sender, System.EventArgs args)
 	{
 		Close();
 	}
